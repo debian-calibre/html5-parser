@@ -1,0 +1,18 @@
+This package was debianized by Norbert Preining <preining@debian.org> on
+Sat Jul 29 23:25:39 JST 2017.
+
+The original source was downloaded from
+  https://github.com/kovidgoyal/html5-parser/releases
+
+The contents of the debian/ directory is released under the GNU
+General Public Licence version 3 or (at your option) any later
+version, unless otherwise explicitly stated in the file in question.
+The files under debian/ are under Copyright by:
+
+        Norbert Preining <preining@debian.org> (2017)
+
+Copyright of html5-parser
+
+Copyright (c) 2017 Kovid Goyal <kovid@kovidgoyal.net>
+Distributed under terms of the Apache 2.0 license.
+
