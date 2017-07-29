@@ -9,6 +9,8 @@ Build-Depends: debhelper (>= 10),
 Standards-Version: 4.0.0
 X-Python-Version: >= 2.6
 Homepage: https://github.com/kovidgoyal/html5-parser
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/html5-parser.git
+Vcs-Git: git://anonscm.debian.org/collab-maint/html5-parser.git
 
 Package: python-html5-parser
 Architecture: any
