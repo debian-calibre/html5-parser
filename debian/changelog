@@ -1,5 +1,5 @@
 html5-parser (0.4.3-1) unstable; urgency=medium
 
-  * First release
+  * First release (Closes: #870077)
 
- -- Norbert Preining <preining@debian.org>  Sat, 29 Jul 2017 23:23:09 +0900
+ -- Norbert Preining <preining@debian.org>  Sat, 29 Jul 2017 23:39:44 +0900
