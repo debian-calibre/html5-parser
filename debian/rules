@@ -3,5 +3,5 @@
 export PYBUILD_NAME = html5-parser
 
 %:
-	dh $@ --with python2 --buildsystem=pybuild
+	dh $@ --with python2,python3 --buildsystem=pybuild
 
