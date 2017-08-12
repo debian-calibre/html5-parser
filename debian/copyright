@@ -1,18 +1,36 @@
-This package was debianized by Norbert Preining <preining@debian.org> on
-Sat Jul 29 23:25:39 JST 2017.
+Fromat: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: html5-parser
+Source: https://github.com/kovidgoyal/html5-parser
 
-The original source was downloaded from
-  https://github.com/kovidgoyal/html5-parser/releases
+Files: *
+Copyright: 2017, Kovid Goyal <kovid at kovidgoyal.net>
+License: Apache-2.0
 
-The contents of the debian/ directory is released under the GNU
-General Public Licence version 3 or (at your option) any later
-version, unless otherwise explicitly stated in the file in question.
-The files under debian/ are under Copyright by:
+Files: gumbo/*
+Copyright: 2010-2011 Google Inc.
+           2015-2016 Kevin B. Hendricks, Stratford Ontario
+License: Apache-2.0
 
-        Norbert Preining <preining@debian.org> (2017)
+Files: src/as-python-tree.*
+Copyright: 2017, Kovid Goyal <kovid at kovidgoyal.net>
+License: GPL-3
 
-Copyright of html5-parser
+Files: debian/*
+Copyright: 2017, Norbert Preining <preining@debian.org>
+License: GPL-3+
 
-Copyright (c) 2017 Kovid Goyal <kovid@kovidgoyal.net>
-Distributed under terms of the Apache 2.0 license.
-
+License: Apache-2.0
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ .
+        http://www.apache.org/licenses/LICENSE-2.0
+ .
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+ .
+ The complete text of the Apache License
+ can be found in /usr/share/common-licenses/Apache-2.0 file.

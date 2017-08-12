@@ -1,12 +1,6 @@
-html5-parser (0.4.3-2) unstable; urgency=medium
-
-  [ Steve Langasek ]
-  * Add python3 support.
-
- -- Norbert Preining <preining@debian.org>  Sun, 30 Jul 2017 21:56:59 +0900
-
 html5-parser (0.4.3-1) unstable; urgency=medium
 
   * First release (Closes: #870077)
+    thanks to Steve Langasek for python3 support
 
- -- Norbert Preining <preining@debian.org>  Sat, 29 Jul 2017 23:39:44 +0900
+ -- Norbert Preining <preining@debian.org>  Sun, 13 Aug 2017 08:54:37 +0900
