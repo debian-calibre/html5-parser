@@ -1,5 +1,0 @@
-chardet
-lxml>=3.8.0
-
-[soup]
-beautifulsoup4
