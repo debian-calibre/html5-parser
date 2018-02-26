@@ -1,3 +1,10 @@
+html5-parser (0.4.4-1) unstable; urgency=medium
+
+  * New upstream version 0.4.4
+  * bump standards version, no changes necessary
+
+ -- Norbert Preining <preining@debian.org>  Mon, 26 Feb 2018 13:27:45 +0900
+
 html5-parser (0.4.3-1) unstable; urgency=medium
 
   * First release (Closes: #870077)
