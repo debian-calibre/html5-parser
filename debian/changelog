@@ -1,3 +1,9 @@
+html5-parser (0.4.4-1~bpo9+1) stretch-backports; urgency=medium
+
+  * Rebuild for stretch-backports.
+
+ -- Nicholas D Steeves <nsteeves@gmail.com>  Wed, 07 Mar 2018 17:51:36 -0500
+
 html5-parser (0.4.4-1) unstable; urgency=medium
 
   * New upstream version 0.4.4
