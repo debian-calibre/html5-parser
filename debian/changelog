@@ -1,8 +1,9 @@
-html5-parser (0.4.3-1~bpo9+1) stretch-backports; urgency=medium
+html5-parser (0.4.4-1) unstable; urgency=medium
 
-  * Rebuild for stretch-backports.
+  * New upstream version 0.4.4
+  * bump standards version, no changes necessary
 
- -- Nicholas D Steeves <nsteeves@gmail.com>  Mon, 25 Dec 2017 19:10:49 -0500
+ -- Norbert Preining <preining@debian.org>  Mon, 26 Feb 2018 13:27:45 +0900
 
 html5-parser (0.4.3-1) unstable; urgency=medium
 
