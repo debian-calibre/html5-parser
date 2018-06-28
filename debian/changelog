@@ -4,7 +4,7 @@ html5-parser (0.4.4-2) UNRELEASED; urgency=medium
   * Add versioning (>= 3.8.0) to python3-lxml Build-Depends.  When
     backporting 0.4.4-1 this dependency was discovered; see setup.py and
     docs/index.rst.  Thanks to Chris Lamb in Bug #889854 for recommending
-    that this versioned dependency be made explicit.
+    that this versioned dependency be made explicit. (Closes: #902629)
   * Drop X-Python-Version: >= 2.6, because it is no longer needed.
     Python-2.7.9 has been the default Python since old-stable (jessie).
 
