@@ -1,4 +1,4 @@
-html5-parser (0.4.4-2) UNRELEASED; urgency=medium
+html5-parser (0.4.4-2) unstable; urgency=medium
 
   * Switch Vcs from alioth to salsa.
   * Add versioning (>= 3.8.0) to python3-lxml Build-Depends.  When
@@ -8,7 +8,7 @@ html5-parser (0.4.4-2) UNRELEASED; urgency=medium
   * Drop X-Python-Version: >= 2.6, because it is no longer needed.
     Python-2.7.9 has been the default Python since old-stable (jessie).
 
- -- Nicholas D Steeves <nsteeves@gmail.com>  Thu, 28 Jun 2018 14:12:02 -0400
+ -- Nicholas D Steeves <nsteeves@gmail.com>  Mon, 03 Dec 2018 16:03:34 -0500
 
 html5-parser (0.4.4-1) unstable; urgency=medium
 
