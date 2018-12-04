@@ -1,5 +1,9 @@
-html5-parser (0.4.4-2) unstable; urgency=medium
+html5-parser (0.4.5-1) unstable; urgency=medium
 
+  [ Norbert Preining ]
+  * New upstream version 0.4.5
+
+  [ Nicholas D Steeves ]
   * Switch Vcs from alioth to salsa.
   * Add versioning (>= 3.8.0) to python3-lxml Build-Depends.  When
     backporting 0.4.4-1 this dependency was discovered; see setup.py and
@@ -8,7 +12,7 @@ html5-parser (0.4.4-2) unstable; urgency=medium
   * Drop X-Python-Version: >= 2.6, because it is no longer needed.
     Python-2.7.9 has been the default Python since old-stable (jessie).
 
- -- Nicholas D Steeves <nsteeves@gmail.com>  Mon, 03 Dec 2018 16:03:34 -0500
+ -- Norbert Preining <preining@debian.org>  Tue, 04 Dec 2018 09:11:39 +0900
 
 html5-parser (0.4.4-1) unstable; urgency=medium
 
