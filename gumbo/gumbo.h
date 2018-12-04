@@ -189,7 +189,7 @@ void gumbo_tag_from_original_text(GumboStringPiece* text);
 
 /**
  * Fixes the case of SVG elements that are not all lowercase.
- * http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#parsing-main-inforeign
+ * https://html.spec.whatwg.org/multipage/parsing.html#parsing-main-inforeign
  * This is not done at parse time because there's no place to store a mutated
  * tag name.  tag_name is an enum (which will be TAG_UNKNOWN for most SVG tags
  * without special handling), while original_tag_name is a pointer into the
@@ -199,7 +199,7 @@ void gumbo_tag_from_original_text(GumboStringPiece* text);
  * no normalization is called for.  The return value is static data and owned by
  * the library.
  */
-const char* gumbo_normalize_svg_tagname(const GumboStringPiece* tagname, uint8_t *sz);
+const char* gumbo_normalize_svg_tagname(const GumboStringPiece* tagname);
 
 /**
  * Converts a tag name string (which may be in upper or mixed case) to a tag
@@ -230,7 +230,7 @@ typedef struct {
    * The namespace for the attribute.  This will usually be
    * GUMBO_ATTR_NAMESPACE_NONE, but some XLink/XMLNS/XML attributes take special
    * values, per:
-   * http://www.whatwg.org/specs/web-apps/current-work/multipage/tree-construction.html#adjust-foreign-attributes
+   * https://html.spec.whatwg.org/multipage/parsing.html#adjust-foreign-attributes
    */
   GumboAttributeNamespaceEnum attr_namespace;
 
@@ -319,7 +319,7 @@ typedef enum {
  */
 typedef struct GumboInternalNode GumboNode;
 
-/** http://www.whatwg.org/specs/web-apps/current-work/complete/dom.html#quirks-mode */
+/** https://dom.spec.whatwg.org/#concept-document-quirks */
 typedef enum {
   GUMBO_DOCTYPE_NO_QUIRKS,
   GUMBO_DOCTYPE_QUIRKS,

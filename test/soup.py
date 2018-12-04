@@ -6,7 +6,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import gc
 
-from html5_parser.soup import parse
+from html5_parser.soup import parse, is_bs3
 
 from . import TestCase
 
@@ -45,6 +45,12 @@ class SoupTest(TestCase):
         self.ae(dict(root.attrs), {'xml:lang': 'en', 'lang': 'fr'})
         root = parse('<p><x xmlns:a="b">')
         self.ae(type('')(root), '<html><head></head><body><p><x xmlns:a="b"></x></p></body></html>')
+
+    def test_soup_list_attrs(self):
+        if is_bs3():
+            self.skipTest('No bs4 module found')
+        root = parse('<a class="a b" rel="x y">')
+        self.ae(root.body.a.attrs, {'class': 'a b'.split(), 'rel': 'x y'.split()})
 
     def test_soup_leak(self):
         HTML = '<p a=1>\n<a b=2 id=3>y</a>z<x:x class=4>1</x:x>'
