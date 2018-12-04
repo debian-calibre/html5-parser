@@ -1,0 +1,3 @@
+version=4
+opts=filenamemangle=s/.+\/v?(\d\S+)\.tar\.gz/html5-parser-$1\.tar\.gz/ \
+  https://github.com/kovidgoyal/html5-parser/tags .*/v?(\d\S+)\.tar\.gz
