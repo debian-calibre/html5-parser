@@ -6,6 +6,27 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 unicode = type('')
 
+cdata_list_attributes = None
+universal_cdata_list_attributes = None
+empty = ()
+
+
+def init_bs4_cdata_list_attributes():
+    global cdata_list_attributes, universal_cdata_list_attributes
+    from bs4.builder import HTMLTreeBuilder
+    cdata_list_attributes = {
+        k: frozenset(v) for k, v in HTMLTreeBuilder.cdata_list_attributes.items()
+    }
+    universal_cdata_list_attributes = cdata_list_attributes['*']
+
+
+def map_list_attributes(tag_name, name, val):
+    if name in universal_cdata_list_attributes:
+        return val.split()
+    if name in cdata_list_attributes.get(tag_name, empty):
+        return val.split()
+    return val
+
 
 def soup_module():
     if soup_module.ans is None:
@@ -43,6 +64,7 @@ def bs4_fast_append(self, new_child):
 def bs4_new_tag(Tag, soup):
 
     def new_tag(name, attrs):
+        attrs = {k: map_list_attributes(name, k, v) for k, v in attrs.items()}
         return Tag(soup, name=name, attrs=attrs)
 
     return new_tag
@@ -79,9 +101,13 @@ VOID_ELEMENTS = frozenset(
     'area base br col embed hr img input keygen link menuitem meta param source track wbr'.split())
 
 
+def is_bs3():
+    return soup_module().__version__.startswith('3.')
+
+
 def init_soup():
     bs = soup_module()
-    if bs.__version__.startswith('3.'):
+    if is_bs3():
         soup = bs.BeautifulSoup()
         new_tag = bs3_new_tag(bs.Tag, soup)
         append = bs3_fast_append
@@ -90,6 +116,8 @@ def init_soup():
         soup = bs.BeautifulSoup('', 'lxml')
         new_tag = bs4_new_tag(bs.Tag, soup)
         append = bs4_fast_append
+        if universal_cdata_list_attributes is None:
+            init_bs4_cdata_list_attributes()
     return bs, soup, new_tag, bs.Comment, append, bs.NavigableString
 
 
