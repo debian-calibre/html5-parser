@@ -1,7 +1,7 @@
 Source: html5-parser
 Section: python
 Priority: optional
-Maintainer: Norbert Preining <preining@debian.org>
+Maintainer: Norbert Preining <norbert@preining.info>
 Build-Depends: debhelper (>= 10),
                dh-python,
                python-all-dev,
@@ -14,8 +14,8 @@ Build-Depends: debhelper (>= 10),
                python3-pkgconfig
 Standards-Version: 4.1.3
 Homepage: https://github.com/kovidgoyal/html5-parser
-Vcs-Browser: https://salsa.debian.org/debian/html5-parser
-Vcs-Git: https://salsa.debian.org/debian/html5-parser.git
+Vcs-Browser: https://github.com/norbusan/html5-parser-debian
+Vcs-Git: https://github.com/norbusan/html5-parser-debian.git
 
 Package: python-html5-parser
 Architecture: any
