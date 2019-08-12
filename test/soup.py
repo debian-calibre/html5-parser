@@ -23,11 +23,13 @@ class SoupTest(TestCase):
         self.ae(
             type('')(root), '<html><head></head><body><p>\n<a>y</a>z<x:x>1</x:x></p></body></html>')
         root = parse('<svg><image>')
-        self.ae(type('')(root), '<html><head></head><body><svg><image></image></svg></body></html>')
+        self.ae(type('')(root), '<html><head></head><body><svg><image/></svg></body></html>')
         root = parse('<p><!-- ---->')
         self.ae(type('')(root), '<html><head></head><body><p><!-- ----></p></body></html>')
         root = parse('<p><i><b>')
         self.ae(type('')(root), '<html><head></head><body><p><i><b></b></i></p></body></html>')
+        root = parse('<p>a<br>b')
+        self.ae(type('')(root), '<html><head></head><body><p>a<br/>b</p></body></html>')
 
     def test_attr_soup(self):
         root = parse('<p a=1 b=2 ID=3><a a=a>')
@@ -38,7 +40,7 @@ class SoupTest(TestCase):
         self.ae(
             type('')(root),
             '<html><head></head><body>'
-            '<p a="1"><svg><image xlink:href="h"></image></svg></p>'
+            '<p a="1"><svg><image xlink:href="h"/></svg></p>'
             '</body></html>'
         )
         root = parse('<html xml:lang="en" lang="fr"><p>')
@@ -66,3 +68,15 @@ class SoupTest(TestCase):
 
         for num in (1, 10, 100):
             self.assertLess(do_parse(num), 2)
+    
+    def test_doctype_stays_intact(self):
+        base = '\n<html><body><p>xxx</p></body></html>'
+        for dt in (
+                'html',
+                'html PUBLIC "-//W3C//DTD HTML 4.01//EN" '
+                '"http://www.w3.org/TR/html4/strict.dtd"'
+        ):
+            dt = '<!DOCTYPE {}>'.format(dt)
+            soup = parse(dt + base, return_root=False, keep_doctype=True)
+            parsed_doctype = str(soup).split('\n', 1)[0]
+            self.ae(dt, parsed_doctype)

@@ -14,9 +14,12 @@ empty = ()
 def init_bs4_cdata_list_attributes():
     global cdata_list_attributes, universal_cdata_list_attributes
     from bs4.builder import HTMLTreeBuilder
-    cdata_list_attributes = {
-        k: frozenset(v) for k, v in HTMLTreeBuilder.cdata_list_attributes.items()
-    }
+    try:
+        attribs = HTMLTreeBuilder.DEFAULT_CDATA_LIST_ATTRIBUTES
+    except AttributeError:
+        attribs = HTMLTreeBuilder.cdata_list_attributes
+
+    cdata_list_attributes = {k: frozenset(v) for k, v in attribs.items()}
     universal_cdata_list_attributes = cdata_list_attributes['*']
 
 
@@ -63,9 +66,11 @@ def bs4_fast_append(self, new_child):
 
 def bs4_new_tag(Tag, soup):
 
+    builder = soup.builder
+
     def new_tag(name, attrs):
         attrs = {k: map_list_attributes(name, k, v) for k, v in attrs.items()}
-        return Tag(soup, name=name, attrs=attrs)
+        return Tag(soup, name=name, attrs=attrs, builder=builder)
 
     return new_tag
 
@@ -128,9 +133,7 @@ def parse(utf8_data, stack_size=16 * 1024, keep_doctype=False, return_root=True)
         utf8_data = utf8_data.encode('utf-8')
 
     def add_doctype(name, public_id, system_id):
-        public_id = (' PUBLIC ' + public_id + ' ') if public_id else ''
-        system_id = (' ' + system_id) if system_id else ''
-        soup.append(bs.Doctype('<!DOCTYPE {}{}{}>'.format(name, public_id, system_id)))
+        soup.append(bs.Doctype.for_name_and_ids(name, public_id or None, system_id or None))
 
     dt = add_doctype if keep_doctype and hasattr(bs, 'Doctype') else None
     root = html_parser.parse_and_build(
