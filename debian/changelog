@@ -1,3 +1,9 @@
+html5-parser (0.4.9-1) unstable; urgency=medium
+
+  * New upstream version 0.4.9
+
+ -- Norbert Preining <norbert@preining.info>  Tue, 05 Nov 2019 23:10:34 +0900
+
 html5-parser (0.4.8-1) unstable; urgency=medium
 
   [ Nicholas D Steeves ]
