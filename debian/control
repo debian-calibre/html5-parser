@@ -4,9 +4,7 @@ Priority: optional
 Maintainer: Norbert Preining <norbert@preining.info>
 Build-Depends: debhelper (>= 10),
                dh-python,
-               python-all-dev,
                python3-all-dev,
-               python-setuptools,
                python3-setuptools,
                libxml2-dev,
                python3-lxml (>= 3.8.0),
@@ -15,18 +13,6 @@ Standards-Version: 4.1.3
 Homepage: https://github.com/kovidgoyal/html5-parser
 Vcs-Browser: https://github.com/norbusan/html5-parser-debian
 Vcs-Git: https://github.com/norbusan/html5-parser-debian.git
-
-Package: python-html5-parser
-Architecture: any
-Depends: ${python:Depends}, ${misc:Depends}, ${shlibs:Depends}
-Description: fast, standards compliant, C based, HTML 5 parser for python
- A fast implementation of the HTML 5 parsing spec for Python. Parsing is
- done in C using a variant of the gumbo parser. The gumbo parse tree is
- then transformed into an lxml tree, also in C, yielding parse times that
- can be a thirtieth of the html5lib parse times. That is a speedup of 30x.
- This differs, for instance, from the gumbo python bindings, where the
- initial parsing is done in C but the transformation into the final
- tree is done in python.
 
 Package: python3-html5-parser
 Architecture: any
