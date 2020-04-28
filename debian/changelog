@@ -3,6 +3,8 @@ html5-parser (0.4.9-4) UNRELEASED; urgency=medium
   * Trim trailing whitespace.
   * Bump debhelper from old 10 to 12.
   * Set debhelper-compat version in Build-Depends.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
 
  -- Debian Janitor <janitor@jelmer.uk>  Tue, 28 Apr 2020 18:01:56 +0000
 
