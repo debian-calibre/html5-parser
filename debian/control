@@ -2,7 +2,7 @@ Source: html5-parser
 Section: python
 Priority: optional
 Maintainer: Norbert Preining <norbert@preining.info>
-Build-Depends: debhelper-compat (= 12),
+Build-Depends: debhelper-compat (= 13),
                dh-python,
                python3-all-dev,
                python3-setuptools,
