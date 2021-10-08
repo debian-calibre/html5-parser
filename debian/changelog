@@ -1,4 +1,4 @@
-html5-parser (0.4.9-4) UNRELEASED; urgency=medium
+html5-parser (0.4.10-1) UNRELEASED; urgency=medium
 
   [ Debian Janitor ]
   * Trim trailing whitespace.
@@ -10,7 +10,19 @@ html5-parser (0.4.9-4) UNRELEASED; urgency=medium
   [ Norbert Preining ]
   * Update VCS fields.
 
- -- Norbert Preining <norbert@preining.info>  Tue, 30 Mar 2021 09:24:47 +0900
+  [ YOKOTA Hiroshi ]
+  * Update watch file from pypi.debian.org
+  * Add upstream signing key
+  * Use pristine-tar by default
+  * New upstream version 0.4.10
+  * Update debhelper
+  * Add ignore list
+  * Upgrade Debian standards
+  * Use unused value
+  * Remove nonexistent files from manifest
+  * No needs root
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 09 Oct 2021 10:51:38 +0900
 
 html5-parser (0.4.9-3) unstable; urgency=medium
 
