@@ -17,6 +17,7 @@ Vcs-Git: https://github.com/debian-calibre/html5-parser.git
 Package: python3-html5-parser
 Architecture: any
 Depends: ${python3:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Provides: ${python3:Provides}
 Description: fast, standards compliant, C based, HTML 5 parser for python
  A fast implementation of the HTML 5 parsing spec for Python. Parsing is
  done in C using a variant of the gumbo parser. The gumbo parse tree is
