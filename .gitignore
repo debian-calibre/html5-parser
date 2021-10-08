@@ -1,8 +1,0 @@
-build
-.eggs
-*.egg-info
-dist
-docs/_build
-test/large.html
-test/html5lib-tests
-__pycache__

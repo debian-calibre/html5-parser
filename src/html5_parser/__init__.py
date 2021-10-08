@@ -115,7 +115,7 @@ def normalize_treebuilder(x):
     return {'lxml.etree': 'lxml', 'etree': 'stdlib_etree'}.get(x, x)
 
 
-NAMESPACE_SUPPORTING_BUILDERS = frozenset('lxml stdlib_etree dom'.split())
+NAMESPACE_SUPPORTING_BUILDERS = frozenset('lxml stdlib_etree dom lxml_html'.split())
 
 
 def parse(
@@ -129,7 +129,8 @@ def parse(
     return_root=True,
     line_number_attr=None,
     sanitize_names=True,
-    stack_size=16 * 1024
+    stack_size=16 * 1024,
+    fragment_context=None,
 ):
     '''
     Parse the specified :attr:`html` and return the parsed representation.
@@ -145,7 +146,9 @@ def parse(
     :param treebuilder:
         The type of tree to return. Note that only the lxml treebuilder is fast, as all
         other treebuilders are implemented in python, not C. Supported values are:
-          * `lxml <http://lxml.de>`_  -- the default, and fastest
+          * `lxml <https://lxml.de>`_  -- the default, and fastest
+          * `lxml_html <https://lxml.de>`_  -- tree of lxml.html.HtmlElement, same speed as lxml
+            (new in *0.4.10*)
           * etree (the python stdlib :mod:`xml.etree.ElementTree`)
           * dom (the python stdlib :mod:`xml.dom.minidom`)
           * `soup <https://www.crummy.com/software/BeautifulSoup>`_ -- BeautifulSoup,
@@ -161,7 +164,8 @@ def parse(
         suitable for XHTML. In particular handles self-closed CDATA elements.
         So a ``<title/>`` or ``<style/>`` in the HTML will not completely break
         parsing. Also preserves namespaced tags and attributes even for namespaces
-        not supported by HTML 5 (this works only with the ``lxml`` treebuilder).
+        not supported by HTML 5 (this works only with the ``lxml`` and ``lxml_html``
+        treebuilders).
         Note that setting this also implicitly sets ``namespace_elements``.
 
     :param return_root: If True, return the root node of the document, otherwise
@@ -181,6 +185,10 @@ def parse(
         default is sufficient to avoid memory allocations for all but the
         largest documents.
 
+    :param fragment_context: the tag name under which to parse the HTML when the html
+        is a fragment. Common choices are ``div`` or ``body``. To use SVG or MATHML tags
+        prefix the tag name with ``svg:`` or ``math:`` respectively. Note that currently
+        using a non-HTML fragment_context is not supported. New in *0.4.10*.
     '''
     data = as_utf8(html or b'', transport_encoding, fallback_encoding)
     treebuilder = normalize_treebuilder(treebuilder)
@@ -190,6 +198,15 @@ def parse(
             data, return_root=return_root, keep_doctype=keep_doctype, stack_size=stack_size)
     if treebuilder not in NAMESPACE_SUPPORTING_BUILDERS:
         namespace_elements = False
+    fragment_namespace = html_parser.GUMBO_NAMESPACE_HTML
+    if fragment_context:
+        fragment_context = fragment_context.lower()
+        if ':' in fragment_context:
+            ns, fragment_context = fragment_context.split(':', 1)
+            fragment_namespace = {
+                'svg': html_parser.GUMBO_NAMESPACE_SVG, 'math': html_parser.GUMBO_NAMESPACE_MATHML,
+                'html': html_parser.GUMBO_NAMESPACE_HTML
+            }[ns]
 
     capsule = html_parser.parse(
         data,
@@ -198,10 +215,17 @@ def parse(
         maybe_xhtml=maybe_xhtml,
         line_number_attr=line_number_attr,
         sanitize_names=sanitize_names,
-        stack_size=stack_size)
+        stack_size=stack_size,
+        fragment_context=fragment_context,
+        fragment_namespace=fragment_namespace,
+        )
 
-    ans = etree.adopt_external_document(capsule)
-    if treebuilder == 'lxml':
+    interpreter = None
+    if treebuilder == 'lxml_html':
+        from lxml.html import HTMLParser
+        interpreter = HTMLParser()
+    ans = etree.adopt_external_document(capsule, parser=interpreter)
+    if treebuilder in ('lxml', 'lxml_html'):
         return ans.getroot() if return_root else ans
     m = importlib.import_module('html5_parser.' + treebuilder)
     return m.adapt(ans, return_root=return_root)

@@ -645,7 +645,7 @@ static GumboInsertionMode get_current_template_insertion_mode(
   if (template_insertion_modes->length == 0) {
     return GUMBO_INSERTION_MODE_INITIAL;
   }
-  return (GumboInsertionMode)
+  return (GumboInsertionMode)(uintptr_t)
       template_insertion_modes->data[(template_insertion_modes->length - 1)];
 }
 
@@ -4344,27 +4344,23 @@ static bool handle_in_foreign_content(GumboParser* parser, GumboToken* token) {
       (tag_is(token, kStartTag, GUMBO_TAG_FONT) &&
           (token_has_attribute(token, "color") ||
               token_has_attribute(token, "face") ||
-              token_has_attribute(token, "size")))) {
+              token_has_attribute(token, "size"))) ||
+      (tag_in(token, kEndTag, (gumbo_tagset){TAG(P), TAG(BR)}))
+    ) {
     /* Parse error */
     parser_add_parse_error(parser, token);
 
-    /*
-     * Fragment case: If the parser was originally created for the HTML
-     * fragment parsing algorithm, then act as described in the "any other
-     * start tag" entry below.
-     */
-    if (!is_fragment_parser(parser)) {
-      do {
-        pop_current_node(parser);
-      } while (!(is_mathml_integration_point(get_current_node(parser)) ||
-                 is_html_integration_point(get_current_node(parser)) ||
-                 get_current_node(parser)->v.element.tag_namespace ==
-                     GUMBO_NAMESPACE_HTML));
-      parser->_parser_state->_reprocess_current_token = true;
-      return false;
+    GumboNode *current_node;
+    while ((current_node = get_current_node(parser)) && !(
+                is_mathml_integration_point(current_node) ||
+                is_html_integration_point(current_node) ||
+                current_node->v.element.tag_namespace == GUMBO_NAMESPACE_HTML
+    )) {
+        if (!pop_current_node(parser)) break;
     }
 
-    assert(token->type == GUMBO_TOKEN_START_TAG);
+    parser->_parser_state->_reprocess_current_token = true;
+    return false;
   }
 
   if (token->type == GUMBO_TOKEN_START_TAG) {
@@ -4647,7 +4643,7 @@ GumboOutput* gumbo_parse_fragment(const GumboOptions* options,
                     // we exclude the <html> tag as it causes crashes in the as-lxml
                     // module, see https://github.com/kovidgoyal/html5-parser/issues/17
                     // I dont have the time to track down the root cause, probably something
-                    // related to resuing the same string segments for the tag name and the
+                    // related to reusing the same string segments for the tag name and the
                     // special cloning/modification that happens to HTML tags. Since HTML tags
                     // are treated specially anyway, there is no harm in excluding them.
                     TAG(HTML)})) {
