@@ -1,0 +1,21 @@
+From: YOKOTA Hiroshi <yokota.hgml@gmail.com>
+Date: Fri, 8 Oct 2021 16:51:02 +0900
+Subject: Remove nonexistent files from manifest
+
+---
+ MANIFEST.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/MANIFEST.in b/MANIFEST.in
+index 3d9654a..6cd498c 100644
+--- a/MANIFEST.in
++++ b/MANIFEST.in
+@@ -1,6 +1,6 @@
+ exclude *.py
+-include setup.py build.py run_tests.py gen*.py win-ci.py
++include setup.py build.py run_tests.py gen*.py
+ include LICENSE README.rst
+-include gumbo/*.c gumbo/*.h gumbo/*.py gumbo/*.rl
++include gumbo/*.c gumbo/*.h gumbo/*.rl
+ include src/*.c src/*.h
+ include test/*.py
