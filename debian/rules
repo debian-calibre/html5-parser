@@ -1,5 +1,6 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all reproducible=+all
 export PYBUILD_NAME = html5-parser
 
 %:
