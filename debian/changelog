@@ -1,3 +1,10 @@
+html5-parser (0.4.10-2) UNRELEASED; urgency=medium
+
+  * gbp.conf: Update config to use pristine-tar for all gbp operations where
+    pristine-tar should be used.
+
+ -- Nicholas D Steeves <sten@debian.org>  Sun, 01 May 2022 17:34:44 -0400
+
 html5-parser (0.4.10-1) unstable; urgency=medium
 
   [ Debian Janitor ]
