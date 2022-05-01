@@ -2,8 +2,7 @@ Source: html5-parser
 Section: python
 Priority: optional
 Maintainer: Html5-Parser maintainer team <team+html5-parser@tracker.debian.org>
-Uploaders: Norbert Preining <norbert@preining.info>,
-           YOKOTA Hiroshi <yokota.hgml@gmail.com>
+Uploaders: YOKOTA Hiroshi <yokota.hgml@gmail.com>
 Build-Depends: debhelper-compat (= 13),
                dh-python,
                python3-all-dev,
