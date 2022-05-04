@@ -1,10 +1,16 @@
 html5-parser (0.4.10-2) UNRELEASED; urgency=medium
 
+  [ Nicholas D Steeves ]
   * gbp.conf: Update config to use pristine-tar for all gbp operations where
     pristine-tar should be used.
   * Fulfill Norbert Preining's request to be dropped from Uploaders.
 
- -- Nicholas D Steeves <sten@debian.org>  Sun, 01 May 2022 17:34:44 -0400
+  [ YOKOTA Hiroshi ]
+  * Add hardening and reproducible option
+  * Add documents
+  * Add generated file hack
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Thu, 05 May 2022 00:51:24 +0900
 
 html5-parser (0.4.10-1) unstable; urgency=medium
 
