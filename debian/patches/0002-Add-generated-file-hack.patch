@@ -1,0 +1,30 @@
+From: YOKOTA Hiroshi <yokota.hgml@gmail.com>
+Date: Thu, 5 May 2022 00:47:01 +0900
+Subject: Add generated file hack
+
+PKG-INFO file is rebuild each build time.
+This hack restore original file at the end of package build process.
+---
+ src/html5_parser.egg-info/PKG-INFO | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/html5_parser.egg-info/PKG-INFO b/src/html5_parser.egg-info/PKG-INFO
+index 1728def..5d4979f 100644
+--- a/src/html5_parser.egg-info/PKG-INFO
++++ b/src/html5_parser.egg-info/PKG-INFO
+@@ -7,7 +7,6 @@ Author: Kovid Goyal
+ Author-email: redacted@acme.com
+ License: Apache 2.0
+ Download-URL: https://pypi.python.org/packages/source/m/html5-parser/html5-parser-0.4.10.tar.gz
+-Description: UNKNOWN
+ Platform: any
+ Classifier: Development Status :: 5 - Production/Stable
+ Classifier: Intended Audience :: Developers
+@@ -20,3 +19,7 @@ Classifier: Topic :: Text Processing :: Markup
+ Classifier: Topic :: Text Processing :: Markup :: HTML
+ Classifier: Topic :: Text Processing :: Markup :: XML
+ Provides-Extra: soup
++License-File: LICENSE
++
++UNKNOWN
++
