@@ -1,3 +1,11 @@
+html5-parser (0.4.10-3) UNRELEASED; urgency=medium
+
+  * Upgrade Debian standards
+  * Use test code
+  * Update ignore list
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 14 May 2022 12:02:22 +0900
+
 html5-parser (0.4.10-2) unstable; urgency=medium
 
   [ Nicholas D Steeves ]
