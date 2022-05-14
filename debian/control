@@ -9,7 +9,7 @@ Build-Depends: debhelper-compat (= 13),
                python3-bs4,
                python3-setuptools,
                libxml2-dev,
-               python3-lxml (>= 3.8.0),
+               python3-lxml,
                pkg-config
 Standards-Version: 4.6.1
 Homepage: https://github.com/kovidgoyal/html5-parser
