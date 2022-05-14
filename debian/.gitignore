@@ -2,6 +2,7 @@
 /debhelper-build-stamp
 /files
 
+/python3-html5-parser.debhelper.log
 /python3-html5-parser.postinst.debhelper
 /python3-html5-parser.prerm.debhelper
 /python3-html5-parser.substvars
