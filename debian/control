@@ -6,6 +6,7 @@ Uploaders: YOKOTA Hiroshi <yokota.hgml@gmail.com>
 Build-Depends: debhelper-compat (= 13),
                dh-python,
                python3-all-dev,
+               python3-bs4,
                python3-setuptools,
                libxml2-dev,
                python3-lxml (>= 3.8.0),
