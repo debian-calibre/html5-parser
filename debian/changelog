@@ -1,3 +1,9 @@
+html5-parser (0.4.10-5) UNRELEASED; urgency=medium
+
+  * Add python3-bs4 for test code
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 14 May 2022 16:03:38 +0900
+
 html5-parser (0.4.10-4) unstable; urgency=medium
 
   * Update test code
