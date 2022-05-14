@@ -7,4 +7,4 @@ export PYBUILD_NAME = html5-parser
 	dh $@ --with python3 --buildsystem=pybuild
 
 override_dh_auto_test:
-	dh_auto_test -- --system custom --test-args "{interpreter} run_tests.py"
+	dh_auto_test -- --system custom --test-args "cd {build_dir} && {interpreter} {dir}/run_tests.py"
