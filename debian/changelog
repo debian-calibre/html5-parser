@@ -1,3 +1,10 @@
+html5-parser (0.4.10-6) UNRELEASED; urgency=medium
+
+  [ Debian Janitor ]
+  * Remove constraints unnecessary since buster
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Tue, 11 Oct 2022 19:41:30 +0900
+
 html5-parser (0.4.10-5) unstable; urgency=medium
 
   * Add python3-bs4 for test code
