@@ -1,0 +1,21 @@
+From: Kovid Goyal <kovid@kovidgoyal.net>
+Date: Thu, 17 Mar 2022 08:52:21 +0530
+Subject: use an absolute import
+
+---
+ src/html5_parser/soup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/html5_parser/soup.py b/src/html5_parser/soup.py
+index adca9c6..6c82950 100644
+--- a/src/html5_parser/soup.py
++++ b/src/html5_parser/soup.py
+@@ -127,7 +127,7 @@ def init_soup():
+ 
+ 
+ def parse(utf8_data, stack_size=16 * 1024, keep_doctype=False, return_root=True):
+-    from . import html_parser
++    from html5_parser import html_parser
+     bs, soup, new_tag, Comment, append, NavigableString = init_soup()
+     if not isinstance(utf8_data, bytes):
+         utf8_data = utf8_data.encode('utf-8')

@@ -1,0 +1,117 @@
+From: Kovid Goyal <kovid@kovidgoyal.net>
+Date: Sat, 18 Dec 2021 12:12:41 +0530
+Subject: Move the version definition into setup.cfg
+
+---
+ build.py             | 21 +++++++++++++--------
+ setup.cfg            |  1 +
+ setup.py             | 11 ++++++++---
+ src/python-wrapper.c |  4 ----
+ 4 files changed, 22 insertions(+), 15 deletions(-)
+
+diff --git a/build.py b/build.py
+index 55834b6..83f916f 100755
+--- a/build.py
++++ b/build.py
+@@ -17,6 +17,10 @@ import sysconfig
+ from collections import namedtuple
+ from copy import deepcopy
+ from itertools import chain
++try:
++    import configparser
++except ImportError:
++    import ConfigParser as configparser
+ 
+ self_path = os.path.abspath(__file__)
+ base = os.path.dirname(self_path)
+@@ -28,14 +32,10 @@ iswindows = hasattr(sys, 'getwindowsversion')
+ is_ci = os.environ.get('CI') == 'true'
+ Env = namedtuple('Env', 'cc cflags ldflags linker debug cc_name cc_ver')
+ PKGCONFIG = os.environ.get('PKGCONFIG_EXE', 'pkg-config')
+-with open(os.path.join(base, 'src/python-wrapper.c'), 'rb') as f:
+-    raw = f.read().decode('utf-8')
+-version = tuple(
+-    map(
+-        int, (
+-            re.search(r'^#define MAJOR (\d+)', raw, flags=re.MULTILINE).group(1), re.search(
+-                r'^#define MINOR (\d+)', raw, flags=re.MULTILINE).group(1), re.search(
+-                    r'^#define PATCH (\d+)', raw, flags=re.MULTILINE).group(1), )))
++cfg = configparser.ConfigParser()
++cfg.read(os.path.join(base, 'setup.cfg'))
++version = namedtuple('Version', 'major minor patch')(
++    *map(int, cfg.get('metadata', 'version').split('.')))
+ 
+ 
+ def safe_makedirs(path):
+@@ -158,6 +158,11 @@ def init_env(debug=False, sanitize=False, native_optimizations=False, add_python
+     cflags += shlex.split(os.environ.get('CFLAGS', ''))
+     ldflags += shlex.split(os.environ.get('LDFLAGS', ''))
+     cflags.append('-pthread')
++    cflags.extend((
++        '-DMAJOR=' + str(version.major),
++        '-DMINOR=' + str(version.minor),
++        '-DPATCH=' + str(version.patch),
++    ))
+     ans = Env(cc, cflags, ldflags, cc, debug, cc_name, ccver)
+     return add_python_flags(ans) if add_python else ans
+ 
+diff --git a/setup.cfg b/setup.cfg
+index 2c219d9..733be73 100644
+--- a/setup.cfg
++++ b/setup.cfg
+@@ -1,5 +1,6 @@
+ [metadata]
+ name = html5-parser
++version = 0.4.10
+ author = Kovid Goyal
+ author_email = redacted@acme.com
+ description = Fast C based HTML 5 parsing for python
+diff --git a/setup.py b/setup.py
+index 1e9655a..4a4f9da 100755
+--- a/setup.py
++++ b/setup.py
+@@ -14,8 +14,9 @@ base = os.path.dirname(self_path)
+ sys.path.insert(0, base)
+ if True:
+     from build import (
+-        SRC_DIRS, find_c_files, include_dirs, libraries, library_dirs, version, iswindows,
+-        TEST_COMMAND, add_python_path)
++        SRC_DIRS, TEST_COMMAND, add_python_path, find_c_files, include_dirs, iswindows, libraries,
++        library_dirs, version
++    )
+ del sys.path[0]
+ 
+ src_files = tuple(chain(*map(lambda x: find_c_files(x)[0], SRC_DIRS)))
+@@ -43,7 +44,6 @@ class Test(Build):
+ 
+ 
+ setup(
+-    version='{}.{}.{}'.format(*version),
+     cmdclass={'test': Test},
+     ext_modules=[
+         Extension(
+@@ -52,4 +52,9 @@ setup(
+             libraries=libraries(),
+             library_dirs=library_dirs(),
+             extra_compile_args=cargs,
++            define_macros=[
++                ('MAJOR', str(version.major)),
++                ('MINOR', str(version.minor)),
++                ('PATCH', str(version.patch))
++            ],
+             sources=list(map(str, src_files)))])
+diff --git a/src/python-wrapper.c b/src/python-wrapper.c
+index bd00500..90bc812 100644
+--- a/src/python-wrapper.c
++++ b/src/python-wrapper.c
+@@ -13,10 +13,6 @@
+ #include "as-libxml.h"
+ #include "as-python-tree.h"
+ 
+-#define MAJOR 0
+-#define MINOR 4
+-#define PATCH 10
+-
+ static char *NAME =  "libxml2:xmlDoc";
+ static char *DESTRUCTOR = "destructor:xmlFreeDoc";
+ 
