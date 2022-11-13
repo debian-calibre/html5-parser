@@ -4,5 +4,5 @@ upstream/0003-Dont-use-distutils-for-the-Test-class.patch
 upstream/0004-Rename-build.py-to-prevent-name-conflict-with-the-bu.patch
 upstream/0005-use-an-absolute-import.patch
 upstream/0006-Skip-tests-based-on-search.patch
-0001-Remove-nonexistent-files-from-manifest.patch
-0002-Add-generated-file-hack.patch
+0007-Remove-nonexistent-files-from-manifest.patch
+0008-Add-generated-file-hack.patch
