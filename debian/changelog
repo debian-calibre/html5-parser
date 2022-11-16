@@ -1,3 +1,11 @@
+html5-parser (0.4.10-7) UNRELEASED; urgency=medium
+
+  * Rediff patches
+  * Renumber patches
+  * Rediff patches
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Wed, 16 Nov 2022 21:39:36 +0900
+
 html5-parser (0.4.10-6) unstable; urgency=medium
 
   [ Debian Janitor ]
