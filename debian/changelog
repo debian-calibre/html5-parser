@@ -1,3 +1,9 @@
+html5-parser (0.4.10-8) UNRELEASED; urgency=medium
+
+  * Upgrade Debian standards
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 18 Dec 2022 22:10:27 +0900
+
 html5-parser (0.4.10-7) unstable; urgency=medium
 
   * Rediff patches
