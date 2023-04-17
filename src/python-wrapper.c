@@ -13,10 +13,6 @@
 #include "as-libxml.h"
 #include "as-python-tree.h"
 
-#define MAJOR 0
-#define MINOR 4
-#define PATCH 10
-
 static char *NAME =  "libxml2:xmlDoc";
 static char *DESTRUCTOR = "destructor:xmlFreeDoc";
 
@@ -95,12 +91,6 @@ parse(PyObject UNUSED *self, PyObject *args, PyObject *kwds) {
             PyErr_Format(PyExc_KeyError, "Unknown fragment_context tag name: %s", fragment_context);
             return NULL;
         }
-    }
-    if (fragment_namespace != GUMBO_NAMESPACE_HTML) {
-        // causes infinite loops in gumbo, enable the non html fragment context tests
-        // in html5lib_adapter.py to trigger
-        PyErr_SetString(PyExc_KeyError, "Fragment parsing with non-HTML namespaces is not supported");
-        return NULL;
     }
     doc = parse_with_options(buffer, (size_t)sz, &opts, context, fragment_namespace);
     if (!doc) return NULL;

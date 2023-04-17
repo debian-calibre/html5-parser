@@ -1,13 +1,13 @@
 LICENSE
 MANIFEST.in
 README.rst
-build.py
 genattrs.py
 genencodings.py
 gentags.py
 run_tests.py
 setup.cfg
 setup.py
+unix_build.py
 gumbo/attribute.c
 gumbo/attribute.h
 gumbo/char_ref.c
