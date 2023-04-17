@@ -1,11 +1,11 @@
-html5-parser (0.4.11-1) UNRELEASED; urgency=medium
+html5-parser (0.4.11-1) unstable; urgency=medium
 
   * Remove unused keyword
   * New upstream version 0.4.11
   * Rediff patches
   * Renumber patches
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Tue, 18 Apr 2023 02:55:31 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Tue, 18 Apr 2023 02:59:05 +0900
 
 html5-parser (0.4.10-8) unstable; urgency=medium
 
