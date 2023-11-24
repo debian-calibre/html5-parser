@@ -1,3 +1,5 @@
 version=4
-opts=uversionmangle=s/(rc|a|b|c)/~$1/ \
+opts="uversionmangle=s/(rc|a|b|c)/~$1/, \
+      dversionmangle=s/\+ds//, \
+      oversionmangle=s/$/+ds/" \
 https://pypi.debian.net/html5-parser/html5-parser-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
