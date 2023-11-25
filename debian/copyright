@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: html5-parser
 Source: https://github.com/kovidgoyal/html5-parser
-Files-Excluded: src/html5_parser.egg-info
+Files-Excluded: src/html5_parser.egg-info/
 
 Files: *
 Copyright: 2017, Kovid Goyal <kovid at kovidgoyal.net>
