@@ -1,4 +1,4 @@
-html5-parser (0.4.12+ds-2) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds-2) unstable; urgency=medium
 
   * Upgrade Debian policy standards to 4.7.1
   * Replace obsolete Build-Depends: pkg-config => pkgconf
@@ -7,7 +7,7 @@ html5-parser (0.4.12+ds-2) UNRELEASED; urgency=medium
   * Lintian fix: capitalization-error-in-description
   * Lintian fix: extra-license-file
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 23 Feb 2025 12:19:05 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 23 Feb 2025 12:22:44 +0900
 
 html5-parser (0.4.12+ds-1) unstable; urgency=medium
 
