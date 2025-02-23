@@ -35,3 +35,11 @@ License: Apache-2.0
  .
  The complete text of the Apache License
  can be found in /usr/share/common-licenses/Apache-2.0 file.
+
+License: GPL-3
+ The full text of the GPL is distributed as in
+ /usr/share/common-licenses/GPL-3 on Debian systems.
+
+License: GPL-3+
+ The full text of the GPL is distributed as in
+ /usr/share/common-licenses/GPL-3 on Debian systems.
