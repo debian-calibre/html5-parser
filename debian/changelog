@@ -1,3 +1,9 @@
+html5-parser (0.4.12+ds-3) UNRELEASED; urgency=medium
+
+  * Upgrade Debian policy to 4.7.2
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 02 Mar 2025 10:23:53 +0900
+
 html5-parser (0.4.12+ds-2) unstable; urgency=medium
 
   * Upgrade Debian policy standards to 4.7.1
