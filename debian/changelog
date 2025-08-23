@@ -1,8 +1,8 @@
-html5-parser (0.4.12+ds-4) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds-4) unstable; urgency=medium
 
   * Use V5 format for watch file
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 23 Aug 2025 13:49:50 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 23 Aug 2025 13:50:03 +0900
 
 html5-parser (0.4.12+ds-3) unstable; urgency=medium
 
