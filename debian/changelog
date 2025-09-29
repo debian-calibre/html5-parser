@@ -1,8 +1,8 @@
-html5-parser (0.4.12+ds-5) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds-5) unstable; urgency=medium
 
   * Drop Emacs mode line from debian/watch
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Mon, 29 Sep 2025 22:32:02 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Mon, 29 Sep 2025 22:32:14 +0900
 
 html5-parser (0.4.12+ds-4) unstable; urgency=medium
 
