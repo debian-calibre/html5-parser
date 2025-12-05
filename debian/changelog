@@ -1,8 +1,8 @@
-html5-parser (0.4.12+ds-6) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds-6) unstable; urgency=medium
 
   * Lintian fix: redundant-rules-requires-root-no-field
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 06 Dec 2025 01:59:53 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 06 Dec 2025 02:01:07 +0900
 
 html5-parser (0.4.12+ds-5) unstable; urgency=medium
 
