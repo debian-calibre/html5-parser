@@ -16,7 +16,6 @@ Standards-Version: 4.7.2
 Homepage: https://github.com/kovidgoyal/html5-parser
 Vcs-Browser: https://github.com/debian-calibre/html5-parser
 Vcs-Git: https://github.com/debian-calibre/html5-parser.git
-Rules-Requires-Root: no
 
 Package: python3-html5-parser
 Architecture: any
