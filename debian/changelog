@@ -1,3 +1,9 @@
+html5-parser (0.4.12+ds-7) UNRELEASED; urgency=medium
+
+  * Upgrade Debian standards to 4.7.3
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sat, 27 Dec 2025 17:46:05 +0900
+
 html5-parser (0.4.12+ds-6) unstable; urgency=medium
 
   * Lintian fix: redundant-rules-requires-root-no-field
