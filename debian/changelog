@@ -1,3 +1,9 @@
+html5-parser (0.4.12+ds-8) UNRELEASED; urgency=medium
+
+  * Output verbose test result
+
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 28 Dec 2025 11:42:04 +0900
+
 html5-parser (0.4.12+ds-7) unstable; urgency=medium
 
   * Upgrade Debian standards to 4.7.3
