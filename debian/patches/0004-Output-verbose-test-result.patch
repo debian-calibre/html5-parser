@@ -1,0 +1,25 @@
+From: YOKOTA Hiroshi <yokota.hgml@gmail.com>
+Date: Sun, 28 Dec 2025 11:33:24 +0900
+Subject: Output verbose test result
+
+Forwarded: not-needed
+
+Check which test provides segmentation fault while in test
+on hppa platform.
+---
+ run_tests.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/run_tests.py b/run_tests.py
+index 0d50c6c..5e873d2 100644
+--- a/run_tests.py
++++ b/run_tests.py
+@@ -123,7 +123,7 @@ or a module name with a trailing period.
+     tests = unittest.TestSuite(suites) if suites else tests
+ 
+     r = unittest.TextTestRunner
+-    result = r().run(tests)
++    result = r(verbosity=2).run(tests)
+ 
+     if not result.wasSuccessful():
+         raise SystemExit(1)

@@ -1,3 +1,4 @@
 0001-Remove-nonexistent-files-from-manifest.patch
 0002-Remove-PKG-INFO-from-SOURCES.txt.patch
 0003-Remove-Debian-specific-files-from-SOURCES.txt.patch
+0004-Output-verbose-test-result.patch
