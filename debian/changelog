@@ -1,8 +1,8 @@
-html5-parser (0.4.12+ds-8) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds-8) unstable; urgency=medium
 
   * Output verbose test result
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 28 Dec 2025 11:42:04 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 28 Dec 2025 11:42:17 +0900
 
 html5-parser (0.4.12+ds-7) unstable; urgency=medium
 
