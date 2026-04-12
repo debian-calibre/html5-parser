@@ -1,4 +1,4 @@
-html5-parser (0.4.12+ds1-1) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds1-1) unstable; urgency=medium
 
   * Use upstream egg-info
   * Repack to include upstream egg-info
@@ -7,7 +7,7 @@ html5-parser (0.4.12+ds1-1) UNRELEASED; urgency=medium
   * New upstream version 0.4.12+ds1
   * Update extend-diff-ignore
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 12 Apr 2026 11:12:28 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Sun, 12 Apr 2026 11:12:58 +0900
 
 html5-parser (0.4.12+ds-8) unstable; urgency=medium
 
