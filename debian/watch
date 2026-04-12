@@ -3,5 +3,5 @@ Version: 5
 Source: https://pypi.debian.net/html5-parser/
 Matching-Pattern: html5-parser-(.+)\.(?:zip|tgz|tbz|txz|(?:tar\.(?:gz|bz2|xz)))
 Uversion-Mangle: s/(rc|a|b|c)/~$1/
-Dversion-Mangle: s/\+ds//
-Oversion-Mangle: s/$/+ds/
+Dversion-Mangle: s/\+ds\d?//
+Oversion-Mangle: s/$/+ds1/
