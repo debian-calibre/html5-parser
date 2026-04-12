@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: html5-parser
+Version: 0.4.12
+Summary: Fast C based HTML 5 parsing for python
+Home-page: https://html5-parser.readthedocs.io
+Author: Kovid Goyal
+Author-email: redacted@acme.com
+License: Apache 2.0
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Classifier: Topic :: Text Processing :: Markup :: XML
+License-File: LICENSE
+Requires-Dist: chardet
+Requires-Dist: lxml>=3.8.0
+Provides-Extra: soup
+Requires-Dist: beautifulsoup4; extra == "soup"
