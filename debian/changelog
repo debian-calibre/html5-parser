@@ -1,8 +1,8 @@
-html5-parser (0.4.12+ds1-3) UNRELEASED; urgency=medium
+html5-parser (0.4.12+ds1-3) unstable; urgency=medium
 
   * Skip fragile test on hppa
 
- -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Thu, 29 Oct 2026 08:59:36 +0900
+ -- YOKOTA Hiroshi <yokota.hgml@gmail.com>  Thu, 29 Oct 2026 09:05:39 +0900
 
 html5-parser (0.4.12+ds1-2) unstable; urgency=medium
 
